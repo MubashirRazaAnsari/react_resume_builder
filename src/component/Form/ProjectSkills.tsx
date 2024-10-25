@@ -1,7 +1,7 @@
 import { useUserContext } from "../Context/Index";
 import { useState } from "react";
 const Project = () => {
-  const { userProfile, setUserProfile } = useUserContext(); // Getting userProfile and setter from Context
+  const { userProfile, setUserProfile } = useUserContext();
   const [projectName, setProjectName] = useState('');
   const [projectDetail, setProjectDetail] = useState('');
   const [skillInput, setSkillInput] = useState('');
@@ -19,7 +19,7 @@ const Project = () => {
         ...prevProfile,
         skills: [...prevProfile.skills, skillInput.trim()],
       }));
-      setSkillInput(""); // Clear the input field
+      setSkillInput(""); 
     }
   };
   const removeSkill = (skillToRemove: string) => {
@@ -45,11 +45,11 @@ const Project = () => {
           {
             projectName,
             projectDetail,
-            id: Date.now().toString(), // Simple unique ID using timestamp
+            id: Date.now().toString(),
           },
         ],
       }));
-      // Clear input fields
+      
       setProjectName('');
       setProjectDetail('');
     }

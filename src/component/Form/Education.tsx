@@ -2,20 +2,7 @@ import { useUserContext } from "../Context/Index";
 import { v4 as uuidv4 } from 'uuid'
 
 const Education = () => {
-  const { userProfile, setUserProfile } = useUserContext(); // Getting userProfile and setter from Context
-  // const { education } = userProfile;
-  // const handleChange = (
-  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  // ) => {
-  //   const { name, value } = e.target;
-  //   setUserProfile((prevProfile) => ({
-  //     ...prevProfile,
-  //     education: {
-  //       ...prevProfile.education,
-  //       [name]: value,
-  //     },
-  //   }));
-  // };
+  const { userProfile, setUserProfile } = useUserContext(); 
   const handleEducationChange = (index: number, field: string, value: string) => {
     setUserProfile((prev) => ({
       ...prev,
@@ -93,7 +80,7 @@ const Education = () => {
             onChange={(e) => handleEducationChange(index, "instituteName", e.target.value)} />
         </div>
 
-        {/* Phone Field */}
+        
         <div>
           <label htmlFor="degree" className="block text-sm font-medium text-gray-700 mb-1">
             Field of Study

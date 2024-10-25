@@ -1,7 +1,7 @@
 import { useUserContext } from "../Context/Context";
 import { v4 as uuidv4 } from "uuid";
 const Job = () => {
-  const { userProfile, setUserProfile } = useUserContext(); // Getting userProfile and setter from Context
+  const { userProfile, setUserProfile } = useUserContext(); 
   const handleJobChange = (index: number, field: string, value: string) => {
     setUserProfile((prev) => ({
       ...prev,
@@ -66,7 +66,7 @@ const Job = () => {
                     From
                   </label>
                   <input
-                    type="month" // Allows only month and year selection
+                    type="month" 
                     id={`fromDate-${index}`}
                     className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="From Month and Year"
@@ -117,7 +117,7 @@ const Job = () => {
               />
             </div>
 
-            {/* Phone Field */}
+            
             <div>
               <label
                 htmlFor="detail"

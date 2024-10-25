@@ -1,8 +1,7 @@
 import { useUserContext } from "../Context/Context";
 
 const Personal = () => {
-  const { userProfile, setUserProfile } = useUserContext(); // Getting userProfile and setter from Context
-  // const { personalInfo } = userProfile;
+  const { userProfile, setUserProfile } = useUserContext(); 
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,7 +21,7 @@ const Personal = () => {
       const reader = new FileReader();
       reader.onload = () => {
         if (reader.result) {
-          // Store the image as a base64 string in the Context API
+          
           setUserProfile((prev) => ({
             ...prev,
             personalInfo: {
@@ -32,15 +31,11 @@ const Personal = () => {
           }));
         }
       };
-      reader.readAsDataURL(file); // Convert image to base64 format
+      reader.readAsDataURL(file); 
     }
   };
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   console.log("Called");
-
-  // };
+ 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow-md mt-5">
     <h2 className="text-2xl font-semibold text-gray-800 mb-4">Personal Information</h2>
@@ -119,7 +114,7 @@ const Personal = () => {
         </div>
       </div>
   
-      {/* Email Field */}
+     
       <div>
         <label htmlFor="currentTitle" className="block text-sm font-medium text-gray-700 mb-1">
           Current Title

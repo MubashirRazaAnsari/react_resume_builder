@@ -2,8 +2,7 @@ import React from 'react'
 import { useUserContext } from '../Context/Index';
 
 const Contact = () => {
-    const { userProfile, setUserProfile } = useUserContext(); // Getting userProfile and setter from Context
-  // const { personalInfo } = userProfile;
+    const { userProfile, setUserProfile } = useUserContext(); 
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,7 +23,7 @@ const Contact = () => {
   <p className="text-gray-600 mb-6">Fill out your Contact details below.</p>
 
   <form className="space-y-4">
-    {/* Name Fields */}
+    
     <div className="grid grid-cols-2 gap-4">
       <div>
         <label htmlFor="linkedIn" className="block text-sm font-medium text-gray-700 mb-1">

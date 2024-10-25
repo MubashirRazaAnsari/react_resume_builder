@@ -1,6 +1,6 @@
-import {Job ,Contact, Personal ,Skill , Stepper ,StepperControl ,Education ,useUserContext } from '../Context/Index'
+import {Job ,Contact, Personal  , Stepper ,StepperControl ,Education ,useUserContext } from '../Context/Index'
 import { useState } from "react";
-import Project from './Project';
+import Project from './ProjectSkills';
 import {v4 as uuidv4} from 'uuid'
 
 const Form = () => {
@@ -22,20 +22,20 @@ const Form = () => {
   const saveData = () => {
     switch (currentStep) {
       case 1:
-        // Personal information is automatically managed by the context in the Personal component
+        
         console.log('Personal info saved:', userProfile.personalInfo);
         console.log(uuidv4())
         break;
       case 2:
-        // Save education data
+        
         console.log('Education info saved:', userProfile.education);
         break;
       case 3:
-        // Save job history data
+        
         console.log('Job history saved:', userProfile.jobs);
         break;
       case 4:
-        // Save skills data
+        
         console.log('Skills saved:', userProfile.skills);
         break;
       default:
@@ -57,7 +57,7 @@ const Form = () => {
       case 4:
         return <Job />;
       case 5:
-        return <><Skill /> <Project /></>;
+        return  <Project />;
       default:
         return null;
     }

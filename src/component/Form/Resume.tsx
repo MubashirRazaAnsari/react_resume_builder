@@ -24,7 +24,7 @@ const Resume =() => {
   return (
     <div  className="bg-gray-100 p-4">
       <div className="border-1 shadow-lg shadow-gray-700 rounded-lg">
-        {/* {/*<!-- top content -->*/}
+       
         <div className="flex rounded-t-lg bg-top-color sm:px-2 w-full">
           <div className="h-40 w-40 overflow-hidden rounded-full sm:rounded-full sm:relative sm:p-0 top-10 left-5 p-3">
             <img src={userProfile.personalInfo.profileImg} />
@@ -40,11 +40,11 @@ const Resume =() => {
           </div>
         </div>
 
-        {/*<!-- main content -->*/}
+       
         <div className="p-5">
           <div className="flex flex-col sm:flex-row sm:mt-10">
             <div className="flex flex-col sm:w-1/3">
-              {/*<!-- My contact -->*/}
+             
               <div className="py-3 sm:order-none order-3">
                 <h2 className="text-lg font-poppins font-bold text-top-color">
                   My Contact
@@ -73,7 +73,7 @@ const Resume =() => {
                   </div>
                 </div>
               </div>
-              {/*<!-- Skills -->*/}
+             
               <div className="py-3 sm:order-none order-2">
                 <h2 className="text-lg font-poppins font-bold text-top-color">
                   Skills
@@ -90,7 +90,7 @@ const Resume =() => {
                  
                   </div>
                 </div>
-              {/*<!-- Education Background -->*/}
+              
               <div className="py-3 sm:order-none order-1">
                 <h2 className="text-lg font-poppins font-bold text-top-color">
                   Education Background
@@ -119,7 +119,7 @@ const Resume =() => {
             </div>
 
             <div className="flex flex-col sm:w-2/3 order-first sm:order-none sm:-mt-10">
-              {/*<!-- About me -->*/}
+           
               <div className="py-3">
                 <h2 className="text-lg font-poppins font-bold text-top-color">
                   About Me
@@ -128,7 +128,7 @@ const Resume =() => {
                 <p>{`${userProfile.personalInfo.aboutMe}.`}</p>
               </div>
 
-              {/*<!-- Professional Experience -->*/}
+             
               <div className="py-3">
                 <h2 className="text-lg font-poppins font-bold text-top-color">
                   Professional Experience
@@ -155,7 +155,7 @@ const Resume =() => {
                  </div> 
                 ))}
               </div>
-              {/*<!-- Projects -->*/}
+            
               <div className="py-3">
                 <h2 className="text-lg font-poppins font-bold text-top-color">
                   Projects
@@ -181,7 +181,8 @@ const Resume =() => {
           </div>
         </div>
       </div>
-      <button onClick={downloadPDF}>Download PDF</button>
+      <button className="block mb-4 w-full rounded-full bg-blue-500 text-neutral-50 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-blue-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0 disabled:opacity-50"
+       onClick={downloadPDF}>Download PDF</button>
       <div ref={componentRef}></div>
     </div>
   );
