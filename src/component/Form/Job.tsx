@@ -2,11 +2,11 @@ import { useUserContext } from "../Context/Context";
 import { v4 as uuidv4 } from "uuid";
 const Job = () => {
   const { userProfile, setUserProfile } = useUserContext(); 
-  const handleJobChange = (index: number, field: string, value: string) => {
+  const handleJobChange = (id: number, field: string, value: string) => {
     setUserProfile((prev) => ({
       ...prev,
       jobs: prev.jobs.map((job, i) =>
-        i === index ? { ...job, [field]: value } : job
+        i === id ? { ...job, [field]: value } : job
       ),
     }));
   };
@@ -37,22 +37,23 @@ const Job = () => {
       <p className="text-gray-600 mb-6">
         Fill out your Professional Experience below.
       </p>
-      <form className="space-y-4">
+      
         {userProfile.jobs.map((_job, index) => (
-          <>
-            <div className="border-b-slate-500 shadow-md p-3 rounded-md">
+          
+          <form key = {index} className="space-y-4">
+            <div  className="border-b-slate-500 shadow-md p-3 rounded-md">
               <div className="grid grid-cols-4 gap-4">
                 <div className="col-span-2">
                   <label
-                    htmlFor="passingYear"
+                    htmlFor="companyName"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
                     Company Name
                   </label>
                   <input
                     type="text"
-                    id="passingYear"
-                    name="passingYear"
+                    id="companyName"
+                    name="companyName"
                     className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Company Name"
                     onChange={(e) => handleJobChange(index, "companyName", e.target.value)}
@@ -60,14 +61,14 @@ const Job = () => {
                 </div>
                 <div className="mb-3 col-span-1">
                   <label
-                    htmlFor={`fromDate-${index}`}
+                    htmlFor="from"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
                     From
                   </label>
                   <input
                     type="month" 
-                    id={`fromDate-${index}`}
+                    id="from"
                     className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="From Month and Year"
                     onChange={(e) =>
@@ -79,14 +80,14 @@ const Job = () => {
               
                 <div className="mb-3 col-span-1">
                   <label
-                    htmlFor={`toDate-${index}`}
+                    htmlFor="to"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
                     To
                   </label>
                   <input
                     type="month" 
-                    id={`toDate-${index}`}
+                    id="to"
                     className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="To Month and Year"
                     onChange={(e) =>
@@ -100,19 +101,19 @@ const Job = () => {
             
             <div>
               <label
-                htmlFor="title"
+                htmlFor="jobTitle"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Title
               </label>
               <input
                 type="text"
-                id="title"
-                name="instituteName"
+                id="jobTitle"
+                name="jobTitle"
                 className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Your title"
                 onChange={(e) =>
-                  handleJobChange(index, "title", e.target.value)
+                  handleJobChange(index, "jobTitle", e.target.value)
                 }
               />
             </div>
@@ -133,8 +134,10 @@ const Job = () => {
                 placeholder="Write down your role and resposibilities at this job."
                 onChange={(e) => handleJobChange(index, "detail", e.target.value)}
               />
+             
             </div>
-          </>
+            </form>
+              
         ))}
 
         <button
@@ -144,7 +147,8 @@ const Job = () => {
         >
           Add More
         </button>
-      </form>
+        
+        
     </div>
   );
 };

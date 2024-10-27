@@ -2,9 +2,9 @@ import { useUserContext } from "../Context/Index";
 import { useState } from "react";
 const Project = () => {
   const { userProfile, setUserProfile } = useUserContext();
-  const [projectName, setProjectName] = useState('');
-  const [projectDetail, setProjectDetail] = useState('');
-  const [skillInput, setSkillInput] = useState('');
+  const [projectName, setProjectName] = useState(String);
+  const [projectDetail, setProjectDetail] = useState(String);
+  const [skillInput, setSkillInput] = useState(String);
 
   const handleSkillChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSkillInput(e.target.value);
@@ -38,6 +38,7 @@ const Project = () => {
   const addProject = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (projectName && projectDetail) {
+      console.log("A project has been added")
       setUserProfile((prev) => ({
         ...prev,
         project: [
@@ -50,7 +51,7 @@ const Project = () => {
         ],
       }));
       
-      setProjectName('');
+      setProjectName('A project has been added');
       setProjectDetail('');
     }
   };

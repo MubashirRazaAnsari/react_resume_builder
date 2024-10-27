@@ -26,13 +26,13 @@ const Contact = () => {
     
     <div className="grid grid-cols-2 gap-4">
       <div>
-        <label htmlFor="linkedIn" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-1">
           LinkedIn
         </label>
         <input
           type="text"
-          id="linkedIn"
-          name="linkedIn"
+          id="linkedin"
+          name="linkedin"
           className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="LinkedIn"
           value={userProfile.personalInfo.linkedin}
@@ -40,12 +40,12 @@ const Contact = () => {
         />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">
           Phone
         </label>
         <input
           type="tel"
-          id="phone"
+          id="phoneNumber"
           name="phoneNumber"
           className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="phone"

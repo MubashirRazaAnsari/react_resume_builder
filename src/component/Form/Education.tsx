@@ -33,12 +33,12 @@ const Education = () => {
   return (
   <div className="max-w-lg mx-auto p-6 bg-white rounded-xl my-10 ">
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">Education</h2><p className="text-gray-600 mb-6">Fill out your Educational details below.</p>
-      <form className="space-y-4">
+      
      
              {userProfile.education.map((_education, index) => (
               
-<>
-<div className="border-b-slate-500 shadow-md p-3 rounded-md">
+<form key={index}className="space-y-4">
+<div key={index} className="border-b-slate-500 shadow-md p-3 rounded-md">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="passingYear" className="block text-sm font-medium text-gray-700 mb-1">
@@ -94,12 +94,12 @@ const Education = () => {
             onChange={(e) => handleEducationChange(index, "degree", e.target.value)} />
         </div>
       </div>
-     </> )
+      </form> )
       )}
 
     
         <button onClick={addEducation} disabled ={userProfile.education.length=== 3} className="block mb-4 w-full rounded-full bg-blue-500 text-neutral-50 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-blue-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0 disabled:opacity-50" >Add Education</button>
-     </form>
+     
    
 </div>
 )}

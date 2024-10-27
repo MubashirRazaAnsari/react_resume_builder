@@ -1,9 +1,11 @@
 import { useUserContext } from "../Context/Context";
-import { useRef } from "react";
+import { useRef  } from "react";
+import { useNavigate } from "react-router-dom";
 import html2pdf from 'html2pdf.js';
 
 
 const Resume =() => {
+  const navigate = useNavigate()
   const { userProfile } = useUserContext();
   const componentRef = useRef<HTMLDivElement | null>(null);
 
@@ -21,8 +23,18 @@ const Resume =() => {
         .save();
     }
   };
+  
   return (
-    <div  className="bg-gray-100 p-4">
+    <div>
+      <div className="flex m-2">
+      <button className=" mb-4 my-2 rounded-full bg-slate-400 text-neutral-50 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-blue-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0 disabled:opacity-50"
+    onClick={() => {
+      navigate('/form')
+    }}>Edit</button>
+      <button className="block mb-4 my-2 rounded-full bg-blue-500 text-neutral-50 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-blue-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0 disabled:opacity-50"
+    onClick={downloadPDF}>Download PDF</button>
+    </div>
+    <div ref = {componentRef} className="bg-gray-100 p-4">
       <div className="border-1 shadow-lg shadow-gray-700 rounded-lg">
        
         <div className="flex rounded-t-lg bg-top-color sm:px-2 w-full">
@@ -34,7 +46,8 @@ const Resume =() => {
             <p className="font-poppins font-bold text-heading sm:text-4xl text-2xl">
               {`${userProfile.personalInfo.firstName} ${userProfile.personalInfo.lastName}`}
             </p>
-            <p className="text-heading">
+        
+            <p className=" text-heading my-1 text-xl font-semibold">
               {userProfile.personalInfo.currentTitle}
             </p>
           </div>
@@ -52,17 +65,17 @@ const Resume =() => {
                 <div className="border-2 w-20 border-top-color my-3"></div>
 
                 <div>
-                  <div className="flex items-center my-1">
+                  <div className="flex items-center my-2">
                     <div className="flex items-center truncate">
                       {userProfile.personalInfo.email}
                     </div>
                   </div>
-                  <div className="flex items-center my-1">
+                  <div className="flex items-center my-2">
                     <div className="flex items-center truncate">
                       {userProfile.personalInfo.phoneNumber}
                     </div>
                   </div>
-                  <div className="flex items-center my-1">
+                  <div className="flex items-center my-2">
                     {userProfile.personalInfo.linkedin ? (
                       <div className="flex items-center truncate">
                         {userProfile.personalInfo.linkedin}
@@ -181,10 +194,10 @@ const Resume =() => {
           </div>
         </div>
       </div>
-      <button className="block mb-4 w-full rounded-full bg-blue-500 text-neutral-50 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-blue-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0 disabled:opacity-50"
-       onClick={downloadPDF}>Download PDF</button>
-      <div ref={componentRef}></div>
+      
     </div>
+    
+   </div>
   );
 };
 
