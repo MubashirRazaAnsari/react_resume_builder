@@ -1,4 +1,4 @@
-import { useUserContext } from "../Context/Context";
+import { useUserContext } from "../../Context/Context";
 
 const Personal = () => {
   const { userProfile, setUserProfile } = useUserContext(); 
@@ -37,7 +37,7 @@ const Personal = () => {
 
  
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow-md mt-5">
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow-lg mt-5">
     <h2 className="text-2xl font-semibold text-gray-800 mb-4">Personal Information</h2>
     <p className="text-gray-600 mb-6">Fill out your personal details below.</p>
   
@@ -45,42 +45,21 @@ const Personal = () => {
     <div className="col-span-full">
           
           <div className="mt-2 flex justify-center rounded-full border border-dashed border-gray-900/25 px-6 py-10">
-            <div className="text-center">
-              <svg
-                className="mx-auto h-12 w-12 text-gray-300"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-                data-slot="icon"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <div className=" flex text-sm leading-6 text-gray-600 mt-[20px] h-[50px]">
-                <label
-                  htmlFor="profileImg"
-                  className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                >
-                  <span>Upload a file</span>
-                  <input
-                    id="profileImg"
-                    name="profileImg"
-                    type="file"
-                    className="sr-only"
-                    onChange={handleImageChange}
-                    accept="image/*"
-                  />
-                  
-                </label>
-                <p className="pl-1">or drag and drop</p>
-              </div>
-              <p className="text-xs leading-5 text-gray-600">
-                PNG, JPG, GIF up to 10MB
-              </p>
-            </div>
+          <div className="flex items-center space-x-6">
+    <div className="shrink-0">
+      <img id='preview_img' className="h-16 w-16 object-cover rounded-full" src={userProfile.personalInfo.profileImg} alt="Current profile photo" />
+    </div>
+    <label className="block">
+      <span className="sr-only">Choose profile photo</span>
+      <input type="file" onChange={handleImageChange} className="block w-full text-sm text-slate-500
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-full file:border-0
+        file:text-sm file:font-semibold
+        file:bg-violet-50 file:text-violet-700
+        hover:file:bg-violet-100
+      "/>
+    </label>
+  </div>
           </div>
           </div>
       <div className="grid grid-cols-2 gap-4">
@@ -96,6 +75,7 @@ const Personal = () => {
             placeholder="First Name"
             value={userProfile.personalInfo.firstName}
             onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -110,6 +90,7 @@ const Personal = () => {
             placeholder="Last Name"
             value={userProfile.personalInfo.lastName}
             onChange={handleChange}
+            required
           />
         </div>
       </div>
@@ -127,6 +108,7 @@ const Personal = () => {
           placeholder="Current Job Title"
           value={userProfile.personalInfo.currentTitle}
           onChange={handleChange}
+          required
         />
       </div>
   
@@ -142,6 +124,7 @@ const Personal = () => {
           placeholder="About Me"
           value={userProfile.personalInfo.aboutMe}
           onChange={handleChange}
+          required
         />
       </div>
          

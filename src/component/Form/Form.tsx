@@ -1,20 +1,21 @@
-import {Job ,Contact, Personal  , Stepper ,StepperControl ,Education ,useUserContext } from '../Context/Index'
-import { useState } from "react";
-import Project from './ProjectSkills';
+import {Job ,Contact, Personal  , Stepper ,StepperControl ,Education ,useUserContext,Project } from '../Context/Index'
+import { useEffect, useState } from "react";
+
 import {v4 as uuidv4} from 'uuid'
+import {  resumeStepsConfig } from '../Context/Context';
 
 const Form = () => {
   const {userProfile} = useUserContext();
-  const [currentStep, setCurrentStep] = useState(1);
-  
-  const steps = [
-    "Personal Information",
-    "Contact",
-    "Education",
-    "Job History",
-    "Skills & Project",
-    
-  ];
+  const [currentStep, setCurrentStep] = useState(0);
+  const {selectedResumeStyle} = userProfile;
+  const [step ,setStep] = useState<string[]>([]);
+ 
+  useEffect(() => {
+    // Set steps based on the selected resume style
+    if (selectedResumeStyle) {
+      setStep(resumeStepsConfig[selectedResumeStyle]);
+    }
+  }, [selectedResumeStyle]);
  
  
   
@@ -42,22 +43,22 @@ const Form = () => {
         break;
     }
   };
- 
 
 
-  const displayStep = (step: number): JSX.Element | null => {
-    switch (step) {
-     
-      case 1:
-        return  <Personal  />;
-      case 2:
-       return <Contact />
-      case 3:
+
+  const displayStep = (stepIndex: number) => {
+   
+    switch (stepIndex) {
+      case 0: // Personal Information
+        return <Personal />;
+      case 1: // Contact
+        return <Contact />;
+      case 2: // Education
         return <Education />;
-      case 4:
+      case 3: // Job History
         return <Job />;
-      case 5:
-        return  <Project />;
+      case 4: // Skills & Projects
+        return <Project />;
       default:
         return null;
     }
@@ -65,11 +66,11 @@ const Form = () => {
 
   return (
     
-    <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+    <div className="md:w-1/2 mx-auto rounded-2xl pb-2">
 
 
     
-      <Stepper steps={steps} currentStep={currentStep} />
+      <Stepper steps={step} currentStep={currentStep} />
       
       {/* Displaying the current step's content */}
       <div className="p-4">{displayStep(currentStep)}</div>
@@ -78,7 +79,7 @@ const Form = () => {
       <StepperControl
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
-        totalSteps={steps.length}
+        totalSteps={step.length}
         saveData={saveData} // Pass the saveData function here
       />
 

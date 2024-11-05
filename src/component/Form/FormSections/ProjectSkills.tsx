@@ -1,4 +1,4 @@
-import { useUserContext } from "../Context/Index";
+import { useUserContext } from "../../Context/Index";
 import { useState } from "react";
 const Project = () => {
   const { userProfile, setUserProfile } = useUserContext();
@@ -10,7 +10,7 @@ const Project = () => {
     setSkillInput(e.target.value);
   };
 
- 
+  
 
   const addSkill = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -79,6 +79,7 @@ const Project = () => {
         </div>
         <button
           type="submit"
+          disabled = {userProfile.skills.length === 5}
           className="block w-full rounded-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 transition"
         >
           Add Skill
@@ -92,7 +93,7 @@ const Project = () => {
         {userProfile.skills.map((skill, index) => (
           <li
             key={index}
-            className="flex justify-between items-center p-2 border rounded-md bg-gray-100 h-8"
+            className="flex justify-between items-center m-1 p-2 border rounded-md bg-gray-100 h-auto"
           >
             <span>{skill}</span>
             <button
@@ -103,9 +104,11 @@ const Project = () => {
             </button>
           </li>
         ))}
-      </ul>
+        </ul>
     </div>
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-xl my-10">
+
+{userProfile.selectedResumeStyle !== 'Style3'? 
+  <div className="max-w-lg mx-auto p-6 bg-white rounded-xl my-10 shadow-md $`{customStyle}`">
     <h2 className="text-2xl font-semibold text-gray-800 mb-4">Projects</h2>
     <form className="space-y-4" onSubmit={addProject}>
       <div>
@@ -146,14 +149,15 @@ const Project = () => {
     <h3 className="text-lg font-semibold text-gray-800 mt-6">Previous Projects:</h3>
     <ul className="space-y-2">
       {userProfile.project.map((project) => (
-        <li key={project.id} className="flex justify-between items-center p-2 border rounded-md bg-gray-100">
-          <div>
+        <li key={project.id} className="flex justify-between items-center m-1 p-2 border rounded-md bg-gray-100 h-auto">
+          <div className="w-10/12 break-words">
             <strong>{project.projectName}</strong>
-            <p>{project.projectDetail}</p>
+            <p className="break-words">{project.projectDetail}</p>
+          
           </div>
           <button
             onClick={() => removeProject(project)}
-            className="text-red-500 hover:text-red-700"
+            className=" text-black-500 m-2 p-2  border-2 hover:border-red-500 hover:bg-red-400 rounded-full font-bold hover:text-red-900 "
           >
             X
           </button>
@@ -161,6 +165,7 @@ const Project = () => {
       ))}
     </ul>
   </div>
+:<div></div>}
   </>
   );
 };

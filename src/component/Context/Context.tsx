@@ -34,6 +34,7 @@ interface UserProfile {
     projectDetail: string;
     id:string;
   }[];
+  selectedResumeStyle:ResumeStyle;
 }
 
 // Define a context type
@@ -41,6 +42,14 @@ interface UserContextType {
   userProfile: UserProfile;
   setUserProfile: React.Dispatch<React.SetStateAction<UserProfile>>;
 }
+
+export type ResumeStyle = 'Style1' | 'Style2' | 'Style3';
+
+  export const resumeStepsConfig: Record<ResumeStyle, string[]> = {
+    Style1: ['Personal Info','Contact', 'Education', 'Work Experience', 'Skills' ],
+    Style2: ['Personal Info','Contact', 'Work Experience', 'Skills' ],
+    Style3: ['Personal Info','Contact', 'Education', 'Work Experience', 'Project'],
+  };
 
 // Create context with default values
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -80,6 +89,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       projectDetail: "",
       id:"",
     }],
+    selectedResumeStyle: 'Style1',
   });
 
   return (

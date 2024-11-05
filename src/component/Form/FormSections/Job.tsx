@@ -1,4 +1,4 @@
-import { useUserContext } from "../Context/Context";
+import { useUserContext } from "../../Context/Context";
 import { v4 as uuidv4 } from "uuid";
 const Job = () => {
   const { userProfile, setUserProfile } = useUserContext(); 
@@ -57,6 +57,8 @@ const Job = () => {
                     className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Company Name"
                     onChange={(e) => handleJobChange(index, "companyName", e.target.value)}
+                    value={userProfile.jobs[index].companyName}
+                    required ={userProfile.jobs.length === 1}
                   />
                 </div>
                 <div className="mb-3 col-span-1">
@@ -74,6 +76,7 @@ const Job = () => {
                     onChange={(e) =>
                       handleJobChange(index, "from", e.target.value)
                     }
+                    value={userProfile.jobs[index].from}
                   />
                 </div>
 
@@ -93,6 +96,7 @@ const Job = () => {
                     onChange={(e) =>
                       handleJobChange(index, "to", e.target.value)
                     }
+                    value={userProfile.jobs[index].to}
                   />
                 </div>
               </div>
@@ -115,6 +119,7 @@ const Job = () => {
                 onChange={(e) =>
                   handleJobChange(index, "jobTitle", e.target.value)
                 }
+                value={userProfile.jobs[index].jobTitle}
               />
             </div>
 
@@ -133,6 +138,7 @@ const Job = () => {
                 className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Write down your role and resposibilities at this job."
                 onChange={(e) => handleJobChange(index, "detail", e.target.value)}
+                value={userProfile.jobs[index].detail}
               />
              
             </div>

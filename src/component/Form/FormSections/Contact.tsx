@@ -1,5 +1,5 @@
 import React from 'react'
-import { useUserContext } from '../Context/Index';
+import { useUserContext } from '../../Context/Index';
 
 const Contact = () => {
     const { userProfile, setUserProfile } = useUserContext(); 
