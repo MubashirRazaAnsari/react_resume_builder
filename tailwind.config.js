@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require('tailwindcss/plugin')
 
+
 export default {
   content:  [
     "./index.html",
@@ -14,7 +15,7 @@ export default {
         'heading': '#fcfbfc',
     },
     backgroundImage: {
-      'custom-image': "url('D:\TestPractice\ResumeBuilder\src\assets\heroDisplay.webp')",
+      'hero-display': "url('./src/assets/HeroDisplay.webp')",
     },
     textShadow: {
       sm: '0 1px 2px var(--tw-shadow-color)',

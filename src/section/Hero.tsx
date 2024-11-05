@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import HeroDisplay from "../assets/HeroDisplay.webp"
 const Hero: React.FC = () => {
 
   return (
-    <section className="relative bg-cover bg-center md:bg-fixed bg-black bg-[url('D:\TestPractice\ResumeBuilder\src\assets\heroDisplay.webp')] flex r flex-col items-center px-2 pt-4 w-full min-h-[677px] max-md:px-5 max-md:max-w-full md:pt-10">
+    <section  className="relative bg-cover bg-center bg-hero-display md:bg-fixed bg-black flex  flex-col items-center px-2 pt-4 w-full min-h-[677px] max-md:px-5 max-md:max-w-full md:pt-10">
       <div className="absolute inset-0 bg-black opacity-70"></div>
       <div className="relative z-10 flex flex-col items-center text-center">
         <div className="flex flex-col col-span-4">
