@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HeroDisplay from "../assets/HeroDisplay.webp"
+
 const Hero: React.FC = () => {
 
   return (
