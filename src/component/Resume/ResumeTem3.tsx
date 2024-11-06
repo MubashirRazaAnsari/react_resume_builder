@@ -56,7 +56,7 @@ const ResumeTem3 = () => {
                           Github:
                         </span>
                         {userProfile.personalInfo.gitHub}
-                        <span className="inline-block font-normal text-black text-gray-500 transition duration-100 ease-in group-hover:text-gray-700 print:text-black print:">
+                        <span className="inline-block font-normal text-black transition duration-100 ease-in group-hover:text-gray-700 print:text-black print:">
                           ↗
                         </span>
                       </a>
