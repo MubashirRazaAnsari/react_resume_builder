@@ -7,7 +7,7 @@ const Home = () => {
 
 
   return (
-    <div className='bg-black'>
+    <div className="relative bg-cover bg-center bg-fixed bg-black bg-[url('/HeroDisplay.webp')] w-screen min-h-[677px] ] max-md:max-w-full">
 
     <Hero />
     <ResumeCard />

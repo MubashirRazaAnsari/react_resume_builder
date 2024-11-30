@@ -11,8 +11,8 @@ const Nav = () => {
   };
 
   return (
-    <header className="flex bg-black h-[88px] top-0 z-50 sticky">
-    <nav className= "flex justify-between items-center w-[90%] h-10 m-auto ">
+    <header className="flex bg-black h-[68px] top-0 z-50 sticky">
+    <nav className= "flex justify-between items-center w-[90%] h-10 m-auto">
         <div className=" flex items-center justify-between gap-[3vw]">
           <Link to={'/home'}>
           <img className= "w-auto min-w-10 h-auto pb-4 mt-7"src={ResumeLogo} alt="resumeLogo" />
